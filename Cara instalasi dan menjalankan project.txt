@@ -1,0 +1,40 @@
+1.Buka VScode atau code editor yang kita pakai kemudian clone project tersebut
+
+2.Buka terminal pada vscode kemudian arahkan ke direktori file backend dengan cara ketik pada terminal yaitu "cd backend"
+
+3.Hal yang kita lakukan pertama sekali yaitu menginstal dependencies yang perlu dalam hal ini saya menggunakan yarn
+dengan cara mengetik di terminal "npm install --global yarn ".Setelah itu ketik pada terminal yaitu "yarn install",jika tidak bisa melakukan penginstalan seperti dalam kasus saya karena menggunakan operasi sistem windows maka saya melakukan perintah pada terminal "Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted" kemudian saya ketik lagi "yarn install"
+
+4.Setelah melakukan set up dependencies saya melakukan perintah pada terminal yaitu "docker-compose up -d" sebelumnya aktifkan terlebih dahulu docker UI pada windows
+
+5.Create database pada psql pada kasus ini saya menggunakan nama databasenya yaitu "mydataabse"
+
+6.Selanjutnya create file .env dan isi URL databasenya dengan cara copy "DATABASE_URL=postgresql://postgres:12345@localhost:5432/mydatabase",Kemudian lakukan migrasi pada program dengan cara ketik "yarn migrate" pada terminal.
+
+7.Kemudian pada terminal ketik "yarn prisma generate"
+
+8.Dan running program dengan cara "yarn start"
+
+9.Buka postman dan test API dengan metode post pada URL "http://localhost:8000/register". Kemudian pada body > raw > JSON
+isi rawnya dengan format berikut ini
+{
+    "name": "ian",
+    "email": "ian@mail.com",
+    "password": "password"
+}
+
+10.Pastikan bahwa API dapat berfungsi dengan baik dan status 200 (OK),jika tidak bisa maka pada frontend tidak dapat dilanjutkan
+
+11.Setelah melakukan hit API maka buat terminal baru pada VScode dan pastikan terminal berada pada direktori frontend
+
+12.Lakukan instalasi dependencies yang diperlukan dengan cara "yarn install" 
+
+13.Kemudian buka jwt.io untuk mendapatkan encode dari register API yang kita hit tadi
+
+14.Setelah melakukan encode maka copy hasil dari encode tersebut dan pastekan pada .env pada direktori backend seperti pada contoh berikut "JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+
+15.setelah itu pada direktori frontend buka package.json dan baca keterangan pada script (dalam hal ini 'dev' kunci untuk menjalankan program)
+
+16.ketik "yarn dev"
+
+17.Kemudian akan muncul host pada terminal, copy localhost pada terminal dan jalankan pada browser maka tampilan website untuk buku akan muncul
