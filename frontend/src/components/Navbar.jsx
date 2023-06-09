@@ -16,10 +16,12 @@ import {
   useDisclosure,
   useToast,
   VStack,
+
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../modules/fetch";
+
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -42,20 +44,20 @@ const Navbar = () => {
       justify="space-between"
       wrap="wrap"
       padding="1rem"
-      bg="teal.500"
-      color="white"
+      bg="gray.400"
+      color="dark"
     >
       <Link to="/">
         <Flex align="center" mr={5} cursor="pointer">
           <Text fontSize="xl" fontWeight="bold">
-            My Website
+            BOOKS LIST
           </Text>
         </Flex>
       </Link>
       <HStack>
         {isLogin && (
           <Link to="/newbook">
-            <Button colorScheme="blackAlpha">Create New Book</Button>
+            <Button colorScheme="green">Create New Book</Button>
           </Link>
         )}
         {!isLogin ? (
